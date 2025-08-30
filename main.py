@@ -4,8 +4,12 @@ from stats import sort_dict
 import sys
 
 def get_book_text():
-    with open(path) as f:
-        return f.read()
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    else:
+        with open(sys.argv[1]) as f:
+            return f.read()
 
 def main():
     get_num_words(get_book_text())
